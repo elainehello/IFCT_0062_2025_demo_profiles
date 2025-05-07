@@ -17,6 +17,9 @@
     <profiles>
         <profile>
             <id>Desarrollo</id>
+            <properties>
+                <elcolor>amarillo</elcolor>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>com.mysql</groupId>
@@ -31,6 +34,9 @@
         </profile>
         <profile>
             <id>Production</id>
+            <properties>
+                <elcolor>verde</elcolor>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.postgresql</groupId>
@@ -40,5 +46,25 @@
             </dependencies>
         </profile>
     </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>com.elainevalles.demoprofiles.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
